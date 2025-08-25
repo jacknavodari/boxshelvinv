@@ -1,0 +1,31 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.boxshelvinv.app
+productName: BoxShelvInv
+files:
+  - filter:
+      - '**/*'
+      - '!node_modules/**/*'
+      - '!dist/**/*'
+      - '!.git/**/*'
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  requestedExecutionLevel: asInvoker
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: BoxShelvInv
+  uninstallDisplayName: BoxShelvInv - Home Inventory Manager
+mac:
+  target: dmg
+  icon: assets/icon.icns
+linux:
+  target: AppImage
+  icon: assets/icon.png
+electronVersion: 27.3.11
