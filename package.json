@@ -1,0 +1,66 @@
+{
+  "name": "boxshelvinv",
+  "version": "1.0.0",
+  "description": "Smart Home Inventory Management Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win",
+    "dist": "npm run build-win",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "inventory",
+    "home",
+    "organization",
+    "storage",
+    "electron"
+  ],
+  "author": "BoxShelvInv Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.boxshelvinv.app",
+    "productName": "BoxShelvInv",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!.git/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BoxShelvInv",
+      "uninstallDisplayName": "BoxShelvInv - Home Inventory Manager"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
